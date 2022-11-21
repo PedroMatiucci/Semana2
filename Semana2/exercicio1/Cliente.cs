@@ -30,6 +30,22 @@
 
         public int Dependentes { get { return dependentes; } private set { } }
 
+        public void PrintDados()
+        {
+            Console.WriteLine(Nome);
+            Console.WriteLine(Cpf);
+            Console.WriteLine(DataDeNascimento);
+            Console.WriteLine(RendaMensal);
+            Console.WriteLine(EstadoCivil);
+            Console.WriteLine(Dependentes);
+
+        }
+
+        public void Cadastrar()
+        {
+
+        }
+
     }
 
 }

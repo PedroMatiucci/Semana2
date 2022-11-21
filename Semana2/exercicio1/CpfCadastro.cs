@@ -15,11 +15,9 @@ namespace Semana2.exercicio1
             return Console.ReadLine();
         }
 
-        public override string PedeDadosErros()
+        public override string MensagemErro()
         {
-            Console.WriteLine("Erro Digite Um Cpf Valido");
-            Console.WriteLine("Digite Seu Cpf:");
-            return Console.ReadLine();
+           return "Digite Um Cpf Valido";
         }
 
         public override bool Verifica(string dadoVerifica)
@@ -28,6 +26,11 @@ namespace Semana2.exercicio1
             Regex rg = new Regex(pattern);
             Match m = rg.Match(dadoVerifica);
             return m.Success;
+        }
+
+        public override string Nome()
+        {
+            return "cpf";
         }
     }
 }

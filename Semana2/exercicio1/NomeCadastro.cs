@@ -14,11 +14,9 @@ namespace Semana2.exercicio1
             return Console.ReadLine();
         }
 
-        public override string PedeDadosErros()
+        public override string MensagemErro()
         {
-            Console.WriteLine("Erro Seu Nome Precisa Ter Mais de 5 Caracteres");
-            Console.WriteLine("Digite Seu Nome:");
-            return Console.ReadLine();
+            return "Erro Seu Nome Precisa Ter Mais de 5 Caracteres";
         }
 
         public override bool Verifica(string dadoVerifica)
@@ -31,6 +29,11 @@ namespace Semana2.exercicio1
             {
                 return true;
             }
+        }
+
+        public override string Nome()
+        {
+            return "nome";
         }
     }
 }
