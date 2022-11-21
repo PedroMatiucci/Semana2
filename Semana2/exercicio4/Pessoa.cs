@@ -9,6 +9,7 @@ namespace Semana2.exercicio4
     internal class Pessoa
     {
         string nome;
+        Certidao certidao;
 
         public Pessoa(string nome) {
             this.nome = nome;
