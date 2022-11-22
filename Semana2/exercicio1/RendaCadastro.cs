@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace Semana2.exercicio1
 {
-    internal class CpfCadastro: AbstractCadastro
+    internal class RendaCadastro : AbstractCadastro
     {
         public override string PedeDados()
         {
-            Console.WriteLine("Digite Seu Cpf:");
+            Console.WriteLine("Digite Sua Renda:");
             return Console.ReadLine();
         }
 
         public override string MensagemErro()
         {
-           return "Cpf Invalido";
+            return "Por Favor Digite Uma Renda Valida";
+
         }
 
         public override bool Verifica(string dadoVerifica)
         {
-            string pattern = @"^\d{11}$";
+            string pattern = @"^\d+,\d{2}$";
             Regex rg = new Regex(pattern);
             Match m = rg.Match(dadoVerifica);
             return m.Success;
@@ -30,7 +26,7 @@ namespace Semana2.exercicio1
 
         public override string Nome()
         {
-            return "cpf";
+            return "Renda Mensal";
         }
     }
 }

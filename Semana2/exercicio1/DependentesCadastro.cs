@@ -1,28 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace Semana2.exercicio1
 {
-    internal class CpfCadastro: AbstractCadastro
+    internal class DependentesCadastro : AbstractCadastro
     {
         public override string PedeDados()
         {
-            Console.WriteLine("Digite Seu Cpf:");
+            Console.WriteLine("Digite O Numero de Dependentes");
             return Console.ReadLine();
         }
 
         public override string MensagemErro()
         {
-           return "Cpf Invalido";
+            return "Por Favor Digite Um Numero Entre 0 e 10";
+
         }
 
         public override bool Verifica(string dadoVerifica)
         {
-            string pattern = @"^\d{11}$";
+            string pattern = @"\b([0-9]|10)\b";
             Regex rg = new Regex(pattern);
             Match m = rg.Match(dadoVerifica);
             return m.Success;
@@ -30,7 +26,7 @@ namespace Semana2.exercicio1
 
         public override string Nome()
         {
-            return "cpf";
+            return "Dependentes";
         }
     }
 }

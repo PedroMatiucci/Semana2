@@ -1,18 +1,28 @@
-﻿namespace Semana2.exercicio1
+﻿using System.Globalization;
+
+namespace Semana2.exercicio1
 {
     internal class ControleCadastros
     {
         public List<AbstractCadastro> listaParametros = new List<AbstractCadastro>();
-        public Dictionary<object, string> dadosColetados = new Dictionary<object, string>();
+        public Dictionary<AbstractCadastro, string> dadosColetados = new Dictionary<AbstractCadastro, string>();
         public Dictionary<AbstractCadastro, string> dadosValidados = new Dictionary<AbstractCadastro, string>();
         public Dictionary<AbstractCadastro, string> erros = new Dictionary<AbstractCadastro, string>();
         public NomeCadastro cadastroNome = new NomeCadastro();
         public CpfCadastro cadastroCpf = new CpfCadastro();
+        public DataNascimentoCadastro cadastroData = new DataNascimentoCadastro();
+        public RendaCadastro cadastroRenda = new RendaCadastro();
+        public EstadoCadastro cadastroEstado = new EstadoCadastro();
+        public DependentesCadastro cadastroDependentes = new DependentesCadastro();
 
         public void CadastraElementos()
         {
             listaParametros.Add(cadastroNome);
             listaParametros.Add(cadastroCpf);
+            listaParametros.Add(cadastroData);
+            listaParametros.Add(cadastroRenda);
+            listaParametros.Add(cadastroEstado);
+            listaParametros.Add(cadastroDependentes);
         }
         public void ColetarDados()
         {
@@ -62,27 +72,28 @@
 
         public void ColetaDadosErros()
         {
-            CadastraElementos();
-            foreach (KeyValuePair<AbstractCadastro, string> ele in erros)
+            foreach (KeyValuePair<AbstractCadastro, string> elemento in erros)
             {
-                dadosColetados.Add(ele.Key, ele.Key.PedeDados());
-                erros.Remove(ele.Key);
+                dadosColetados.Add(elemento.Key, elemento.Key.PedeDados());
+                erros.Remove(elemento.Key);
             }
             VerificaDadosErro();
         }
 
         public void VerificaDadosErro()
         {
-            foreach (KeyValuePair<AbstractCadastro, string> ele in erros)
+            foreach (KeyValuePair<AbstractCadastro, string> ele in dadosColetados)
             {
                 if (ele.Key.Verifica(ele.Value))
                 {
-                    Console.WriteLine(ele.Key);
                     dadosValidados.Add(ele.Key, ele.Value);
+                    dadosColetados.Remove(ele.Key);
                 }
                 else
                 {
                     erros.Add(ele.Key, ele.Value);
+                    dadosColetados.Remove(ele.Key);
+
                 }
             }
             if (erros.Count == 0)
@@ -99,8 +110,12 @@
         {
             string Nome = dadosValidados[this.cadastroNome];
             long Cpf = long.Parse(dadosValidados[this.cadastroCpf]);
-            Console.WriteLine(Nome, Cpf);
-            //Cliente novo = new Cliente(Nome, Cpf)
+            DateTime Data = DateTime.ParseExact(dadosValidados[cadastroData], "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            float Renda = float.Parse(dadosValidados[cadastroRenda]);
+            char Estado = char.Parse(dadosValidados[cadastroEstado]);
+            int Dependentes = int.Parse(dadosValidados[cadastroDependentes]);
+            Console.WriteLine("Sucesso");
+            Cliente novo = new Cliente(Nome, Cpf, Data, Renda, Estado, Dependentes);
         }
 
     }

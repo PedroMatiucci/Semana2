@@ -1,4 +1,5 @@
-﻿using Semana2.exercicio6;
+﻿using Semana2.exercicio1;
+using Semana2.exercicio6;
 using Semana2.exercicio7;
 
 namespace main
@@ -19,7 +20,7 @@ namespace main
                 Console.WriteLine("PG = {0}",
                     pg.ProximoValor);
             }
-            */
+            //Exercicio 7 testes
             Propriedades teste = new Propriedades(@"C:\Users\Carla\\teste\propriedades.txt");
             string valor = teste.RetornaValor("teste");
             teste.AlterarValor("teste", "mudei o valor2");
@@ -28,6 +29,9 @@ namespace main
             //teste.AlterarValor("teste", "teste1");
             //teste.AlterarValor("teste2", "teste2");
             //teste.EscreveDados();
+            */
+            ControleCadastros teste = new ControleCadastros();
+            teste.ColetarDados();
 
 
         }
