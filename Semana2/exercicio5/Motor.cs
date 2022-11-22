@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Semana2.exercicio5
+﻿namespace Semana2.exercicio5
 {
     internal class Motor
     {
         double cilindrda;
+        Carro carroInstalado;
 
         public Motor(double cilindrda)
         {
@@ -16,5 +11,7 @@ namespace Semana2.exercicio5
         }
 
         public double Cilindrada { get { return cilindrda; } private set { } }
+
+        public Carro CarroInstalado { get { return carroInstalado; } set { carroInstalado = value; } }
     }
 }

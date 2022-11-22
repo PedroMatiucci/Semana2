@@ -1,4 +1,5 @@
 ﻿namespace Semana2.exercicio4
+
 {
     internal class Certidao
     {

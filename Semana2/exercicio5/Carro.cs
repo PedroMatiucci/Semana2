@@ -30,7 +30,11 @@
 
         public void AlterarMotor(Motor motor)
         {
-            Motor = motor;
+            if (motor.CarroInstalado == null)
+            {
+                Motor = motor;
+                motor.CarroInstalado = this;
+            }
         }
 
         public string VelocidadeMaxima()
