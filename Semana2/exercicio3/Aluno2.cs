@@ -4,13 +4,13 @@
     {
         System.Random random = new System.Random();
         string nome;
-        int matricula;
+        Guid matricula;
         Turma2 turma;
 
-        public Aluno2(string nome, int matricula)
+        public Aluno2(string nome)
         {
             this.nome = nome;
-            this.matricula = matricula;
+            matricula = Guid.NewGuid();
         }
 
         public string Nome
@@ -21,12 +21,12 @@
             }
             private set { }
         }
-        public int Matricula
+        public Guid Matricula
         {
             get { return matricula; }
-            set
+            private set
             {
-                matricula = random.Next();
+
             }
         }
 
@@ -36,7 +36,8 @@
             {
                 return turma;
             }
-            set { 
+            set
+            {
                 turma = value;
             }
         }

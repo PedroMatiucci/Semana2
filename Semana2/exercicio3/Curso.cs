@@ -26,7 +26,18 @@
         public void NovaTurma(int codigo)
         {
             Turma2 novaTurma = new Turma2(codigo);
-            listaTurmas.Add(novaTurma);
+            bool adicionar = true;
+            foreach(Turma2 turma in listaTurmas)
+            {
+                if(turma.Codigo == codigo)
+                {
+                    adicionar = false;
+                }
+            }
+            if (adicionar)
+            {
+                listaTurmas.Add(novaTurma);
+            }
         }
 
         public void RemoveTurma(Turma2 turma)
