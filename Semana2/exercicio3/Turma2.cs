@@ -38,5 +38,19 @@
                 Console.WriteLine(aluno.Nome);
             }
         }
+
+        public void AddAluno(Aluno2 aluno)
+        {
+            if (!listaAlunos.Contains(aluno))
+            {
+                listaAlunos.Add(aluno);
+            }
+        }
+
+        public void RemoveAluno(Aluno2 aluno)
+        {
+            listaAlunos.Remove(aluno);
+        }
+    
     }
 }
