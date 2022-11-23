@@ -1,6 +1,4 @@
 ﻿using Semana2.exercicio1;
-using Semana2.exercicio6;
-using Semana2.exercicio7;
 
 namespace main
 {
@@ -32,12 +30,8 @@ namespace main
             */
             ControleCadastros teste = new ControleCadastros();
             teste.ColetarDados();
-
-
         }
-
     }
 }
-
 
 
