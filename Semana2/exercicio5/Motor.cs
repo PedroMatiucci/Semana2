@@ -2,15 +2,15 @@
 {
     internal class Motor
     {
-        double cilindrda;
+        double cilindrada;
         Carro carroInstalado;
 
-        public Motor(double cilindrda)
+        public Motor(double cilindrada)
         {
-            this.cilindrda = cilindrda;
+            this.cilindrda = cilindrada;
         }
 
-        public double Cilindrada { get { return cilindrda; } private set { } }
+        public double Cilindrada { get { return cilindrada; } private set { } }
 
         public Carro CarroInstalado { get { return carroInstalado; } set { carroInstalado = value; } }
     }
